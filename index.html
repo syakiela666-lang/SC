@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Meta tags for PWA and Zero UI mobile experience -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>Scanner</title>
+    <!-- Use system UI font -->
+    <script type="module" crossorigin src="/assets/index-7ozoK7Yg.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfMc5A1u.css">
+  <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
+  <body>
+    <!-- Sticky Top Navigation -->
+    <header class="sticky-top">
+      <div class="search-bar-container">
+        <input type="text" id="searchInput" placeholder="Search..." autocomplete="off" autocorrect="off" spellcheck="false" />
+        <button id="clearSearch" class="icon-btn hidden" aria-label="Clear Search">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <button id="settingsToggle" class="icon-btn" aria-label="Settings">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </button>
+        
+        <div id="settingsPanel" class="settings-panel hidden">
+          <div class="settings-header">UI Scale: <span id="uiScaleVal">100%</span></div>
+          <input type="range" id="uiScale" min="0.6" max="1.5" step="0.1" value="1.0">
+        </div>
+      </div>
+      <div class="segmented-control">
+        <button id="tabScanner" class="tab-btn active">SCANNER</button>
+        <button id="tabFavorites" class="tab-btn">FAVORITES</button>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="mainContainer">
+      <div id="scannerView" class="view active">
+        <div class="grid-layout" id="scannerGrid">
+          <!-- Dynamically populated grid items go here -->
+        </div>
+      </div>
+      
+      <div id="favoritesView" class="view">
+        <div class="list-layout" id="favoritesList">
+          <!-- Dynamically populated list items go here -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div id="scanOverlay" class="scan-overlay">
+      <div id="scanStatus" class="status-text">Initializing Engine...</div>
+    </div>
+
+  </body>
+</html>
